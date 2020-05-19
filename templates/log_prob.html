@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -7,17 +8,24 @@
   <meta name="author" content="Tyler Woods">
   <script src="{{ url_for('static', filename='brython.js')}}"></script>
   <script src="{{ url_for('static', filename='brython_stdlib.js')}}"></script>
+    <link rel="stylesheet" type="text/css"
+            href="{{ url_for('static',filename='css/bootstrap.css') }}">
 
 </head>
 
 <body onload="brython()">
-    <script type="text/python" src="{{ url_for('static', filename='brapp.py') }}"></script>
+<script type="text/python" src="{{ url_for('static', filename='brapp.py') }}"></script>
 
-    <h1 style="color:lightseagreen">Will The Home Team Win The Game (Using Logistic Regression Modeling)</h1>
-    <p style="color:green">This app will return the probability that the home team will win.</p>
-    <p style="color:green">Please enter data for the past three (3) games for the home team and away team.</p>
+<div class="container">
 
-    <div>
+    <h1 style="color:forestgreen">Will The Home Team Win The Game?</h1>
+    <h3 style="color:forestgreen">(Using Logistic Regression Modeling)</h3>
+    <div class="container">
+        <p style="color:forestgreen">This app will return the probability that the home team will win.</p>
+        <p style="color:forestgreen">Please enter data for the past three (3) games for the home team and away team.</p>
+    </div>
+
+    <div class="row">
         <ul>
         <!-- These have id's so that later we can pull out data using js. -->
             <li><span>Home Team Score (Average Last 3 Games):</span> <input id="hts"></input></li>
@@ -28,15 +36,18 @@
         </ul>
     </div>
 
-    <div>
-        <button type="button" id="solve">Solve!</button>
+    <div class="form-group">
+        <button type="button" id="solve" class="btn btn-danger">Calculate!</button>
     </div>
 
     <div>
         <!-- The span has an id so that later we can fill in the solution
              using js. -->
         <p> The probability is: </p>
-        <h2 style="color:SeaGreen"> <span id="solution"></span> </h2>
+        <h2 style="color:forestgreen"> <span id="solution"></span> </h2>
+    </div>
+
+</div>
 
 </body>
 </html>
